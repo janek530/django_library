@@ -1,0 +1,25 @@
+.form{
+    width:  25%;
+    height: 350px;
+	position: relative;
+	margin-left: 1%;
+    top: 50%;
+    left: 150%;
+    transform: translate(150%, 50%);
+    left: auto;
+    border: 1px dotted red;
+    background-color: gray;
+}
+p{
+    margin: 10px;
+    font-size: 20px;
+}
+#add {
+    width: 100px;
+    height: 60px;
+    background: green;
+	position: relative;
+	top: 15%;
+    left: 15%;
+    transform: translate(15%, 15%);
+}

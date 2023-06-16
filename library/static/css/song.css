@@ -1,0 +1,29 @@
+h3 {
+    text-align: center;
+    margin-top: 25px;
+}
+#lyrics{
+    margin: 15%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: grey;
+    color: black;
+}
+button{
+    width: 100px;
+    height: 60px;
+    background: green;
+    position: relative;
+	margin-left: 1%;
+    top: 40%;
+    left: 40%;
+    transform: translate(-40%, -40%);
+    font-size: 20px;
+}
+
+button:first-child{
+	margin-right: 5%;
+}

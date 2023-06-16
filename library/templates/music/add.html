@@ -1,0 +1,14 @@
+{% extends 'music_base.html' %}
+{% load static %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'css/add.css'%}">
+{% endblock %}
+{% block content %}
+    <div class="form">
+        <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="ADD ALBUM" id="add">
+        </form>
+    </div>
+{% endblock %}

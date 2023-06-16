@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    background-color: gray;
+}
+li{
+    font-size: 25px;
+}
+ul > a > li {
+    margin: 10%;
+    display: inline;
+}
+
+body{
+    background-color: #353535
+}
+a{
+    text-decoration: none;
+    color: black;
+}

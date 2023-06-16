@@ -1,0 +1,39 @@
+{% extends 'music_base.html' %}
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'css/album.css' %}">
+{% endblock %}
+{% block content %}
+  <h1>{{ album.name }}</h1>
+  {% if count_song == album.songs %}
+    {% for song in songs %}
+      <a href="{% url 'song_details' album.name song.track_number %}">
+        <div class="song"><h2>{{song.track_number}}. {{song.name}}</h2>
+          <p>{{song.time}}</p>
+        </div>
+      </a>
+    {% endfor %}
+  {% else %}
+     {% for song in songs %}
+      <a href="{% url 'song_details' album.name song.track_number %}">
+        <div class="song"><h2>{{song.track_number}}. {{song.name}}</h2>
+        </div>
+      </a>
+    {% endfor %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ song_form.as_p }}
+        <p>
+            <button type="button" onclick="add_to_lyrics('[Refren]')">[Refren]</button>
+            <button type="button" onclick="add_to_lyrics('[Zwrotka]')">[Zwrotka]</button>
+            <button type="button" onclick="add_to_lyrics('[Intro]')">[Intro]</button>
+            <button type="button" onclick="add_to_lyrics('[Outro]')">[Outro]</button>
+            <button type="button" onclick="add_to_lyrics('[Bridge]')">[Bridge]</button>
+            <button type="button" onclick="add_to_lyrics('[?]')">[?]</button>
+        </p>
+        <br>
+        <button type="submit">Dodaj!</button>
+    </form>
+    <script src="{% static 'javascript/song_lyrics.js' %}"></script>
+  {% endif %}
+{% endblock %}

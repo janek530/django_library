@@ -1,0 +1,25 @@
+.album{
+    width: auto;
+    text-align: center;
+    margin: 5% 3%;
+    padding: 15px;
+    border: 3px dotted red;
+    float: left;
+    border-radius: 3%;
+    background-color: #242227;
+    color: white;
+}
+
+#add{
+    background-color: green;
+    height: 490px;
+}
+
+.album > img{
+    max-width: 100%
+    height: auto;
+}
+
+li{
+    font-size: 25px;
+}
