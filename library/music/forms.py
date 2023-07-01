@@ -9,7 +9,8 @@ class AddAlbumForm(forms.Form):
     image = forms.ImageField(required=False)
     is_borrowed = forms.BooleanField()
 
-
+class EditSongForm(forms.Form):
+    text = forms.CharField(widget=forms.Textarea(), label='lyrics')
 class AddSongForm(forms.Form):
     name = forms.CharField(max_length=150)
     text = forms.CharField(widget=forms.Textarea(attrs={'rows': 20}))

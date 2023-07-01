@@ -1,0 +1,28 @@
+{% extends 'music_base.html' %}
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'css/song.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit_song.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h3>{{ song.name }}</h3>
+    <div id="lyrics">
+        <form action="." method="post">
+            {% csrf_token %}
+            <script href="edit_text.js"></script>
+            <textarea name="lyrics" id="id_text" cols="30" rows="10">{{ song.text }}</textarea>
+            {{form}}
+            <p>
+                <button type="button" onclick="add_to_lyrics('[Refren]')">[Refren]</button>
+                <button type="button" onclick="add_to_lyrics('[Zwrotka]')">[Zwrotka]</button>
+                <button type="button" onclick="add_to_lyrics('[Intro]')">[Intro]</button>
+                <button type="button" onclick="add_to_lyrics('[Outro]')">[Outro]</button>
+                <button type="button" onclick="add_to_lyrics('[Bridge]')">[Bridge]</button>
+                <button type="button" onclick="add_to_lyrics('[?]')">[?]</button>
+            </p>
+            <button type="submit">Zmień</button>
+        </form>
+    </div>
+    <script src="{% static 'javascript/song_lyrics.js' %}"></script>
+{% endblock %}

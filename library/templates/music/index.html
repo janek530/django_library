@@ -12,25 +12,28 @@
                 <option value="id">Default</option>
                 <option value="artist">Artist</option>
                 <option value="name">Name</option>
+                <option value="-songs">Songs</option>
                 <option value="year_of_publish">Date</option>
             </select>
             <button type="submit">Sortuj</button>
         </form>
     </div>
-    {% for album in albums %}
-        <a href="{{ album.name }}">
-            <div class="album" {% if album.is_borrowed %} style="filter: grayscale(1) blur(1px)" {% endif %}>
-                <h4>{{ album.artist }}</h4>
-                <h2>{{ album.name }}</h2> <br>
-                <img src = "{{ album.image.url }}" width="350" height="350">
-                <p>{{ album.type }}</p><p>{{ album.year_of_publish }}</p><p>{{ album.songs }}</p>
+    <div id="albums">
+        {% for album in albums %}
+            <a href="{{ album.name }}">
+                <div class="album" {% if album.is_borrowed %} style="filter: grayscale(1) blur(1px)" {% endif %}>
+                    <h4>{{ album.artist }}</h4>
+                    <h2>{{ album.name }}</h2> <br>
+                    <img src = "{{ album.image.url }}" width="350" height="350">
+                    <p>{{ album.type }}</p><p>{{ album.year_of_publish }}</p><p>{{ album.songs }}</p>
+                </div>
+            </a>
+        {% endfor %}
+        <a href="add">
+            <div class="album" id="add">
+                <img src="/media/static/images/plus.png" width="350" height="350">
+                <h2>Dodaj!</h2>
             </div>
         </a>
-    {% endfor %}
-    <a href="add">
-        <div class="album" id="add">
-            <img src="/media/static/images/plus.png" width="350" height="350">
-            <h2>Dodaj!</h2>
-        </div>
-    </a>
+    </div>
 {% endblock %}

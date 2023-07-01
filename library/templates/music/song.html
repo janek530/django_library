@@ -4,22 +4,27 @@
     <link rel="stylesheet" href="{% static 'css/song.css' %}">
 {% endblock %}
 {% block content %}
+    {% if test %}
+        {{ test }}
+    {% else%}
     <h3>{{ song.name }}</h3>
     <div id="lyrics">
-        {% for something in lyrics %}
-            {{ something }} <br> <br>
+        {% for fragment in lyrics %}
+            <p>{{ fragment }}</p> <br> <br>
         {% endfor %}
     </div>
     <div class="buttons">
-
         {% if song.track_number == 1 %}
             <button type="submit"><a href="{% url 'song_details' album.name next %}">Następny</a></button>
+            <button type="submit"><a href="edit_song">Edytuj tekst</a></button>
         {% elif song.track_number == nums_of_songs %}
             <button type="submit"><a href="{% url 'song_details' album.name previous %}">Poprzedni</a></button>
+            <button type="submit"><a href="edit_song">Edytuj tekst</a></button>
         {% else %}
             <button type="submit"><a href="{% url 'song_details' album.name previous %}">Poprzedni</a></button>
+            <button type="submit"><a href="edit_song">Edytuj tekst</a></button>
             <button type="submit"><a href="{% url 'song_details' album.name next %}">Następny</a></button>
         {% endif %}
+        {% endif %}
     </div>
-
 {% endblock %}

@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .models import Album, Song
-from .forms import AddAlbumForm, AddSongForm
+from .forms import AddAlbumForm, AddSongForm, EditSongForm
 import re
 
 # Create your views here.
@@ -46,9 +46,26 @@ def song(request, name, number):
         'nums_of_songs': nums_of_songs,
         'next': next,
         'previous': previous,
-        'lyrics': lyrics
+        'lyrics': lyrics,
     }
     return render(request, 'song.html', context)
+
+def edit_song(request, name, number):
+    album = Album.objects.get(name=name)
+    songs = album.song_set.all()
+    song = songs.get(track_number=number)
+    if request.method == 'POST':
+        print(request.POST)
+        form = EditSongForm(request.POST)
+        if form.is_valid():
+            text = form['text']
+            song.text = text
+            song.save()
+            return HttpResponseRedirect("")
+    else:
+        form = EditSongForm()
+        return render(request, 'edit_song.html', {'song': song, 'form': form})
+
 
 def add_album(request):
     if request.method == 'POST':
