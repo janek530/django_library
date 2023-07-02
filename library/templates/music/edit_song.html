@@ -8,12 +8,17 @@
 {% block content %}
     <h3>{{ song.name }}</h3>
     <div id="lyrics">
-        <form action="." method="post">
-            {% csrf_token %}
-            <script href="edit_text.js"></script>
-            <textarea name="lyrics" id="id_text" cols="30" rows="10">{{ song.text }}</textarea>
-            {{form}}
+        <div id="text">
+            <form action="." method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="hidden" name="previous" value="{{ request.path }}">
+                <input type="submit" value="ZMIEŃ">
+            </form>
+        </div>
+        <div id="buttons">
             <p>
+                <button type="button" onclick="add_to_lyrics('[genius_lyrics]')">[genius_lyrics]
                 <button type="button" onclick="add_to_lyrics('[Refren]')">[Refren]</button>
                 <button type="button" onclick="add_to_lyrics('[Zwrotka]')">[Zwrotka]</button>
                 <button type="button" onclick="add_to_lyrics('[Intro]')">[Intro]</button>
@@ -21,8 +26,7 @@
                 <button type="button" onclick="add_to_lyrics('[Bridge]')">[Bridge]</button>
                 <button type="button" onclick="add_to_lyrics('[?]')">[?]</button>
             </p>
-            <button type="submit">Zmień</button>
-        </form>
+        </div>
     </div>
     <script src="{% static 'javascript/song_lyrics.js' %}"></script>
 {% endblock %}
