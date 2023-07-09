@@ -6,7 +6,7 @@
 {% block content %}
     {% for book in books %}
         <a href="{{ book.title }}">
-            <div class="book">
+            <div class="book" {% if book.mark_read == True %} style="border: 3px dotted #7FFF00" {% endif %}>
                 <p>{{ book.id }}.</p> <p id="title">{{ book.title }}</p> <p id="author">{{ book.author }}</p>
             </div>
         </a>
