@@ -1,0 +1,17 @@
+h3 {
+    color: grey;
+    text-align: center;
+    margin-top: 25px;
+}
+
+p{
+    margin: 15%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    padding: 25px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: grey;
+    color: black;
+    font-size: 2em;
+}

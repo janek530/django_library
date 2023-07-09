@@ -6,8 +6,12 @@ from .forms import AddBookForm
 
 def index(request):
     books = Book.objects.all()
-    print(books)
     return render(request, 'book_index.html', {'books': books})
+
+def book_details(request, title):
+    book = Book.objects.get(title=title)
+    return render(request, 'book_details.html', {'book': book})
+
 
 def add_book(request):
     if request.method == 'POST':
