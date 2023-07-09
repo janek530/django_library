@@ -1,4 +1,4 @@
-{% extends 'music_base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block static %}
     <link rel="stylesheet" href="{% static 'css/album.css' %}">
@@ -24,6 +24,7 @@
         {% csrf_token %}
         {{ song_form.as_p }}
         <p>
+            <button type="button" onclick="add_to_lyrics('[genius_lyrics]')">[genius_lyrics]</button>
             <button type="button" onclick="add_to_lyrics('[Refren]')">[Refren]</button>
             <button type="button" onclick="add_to_lyrics('[Zwrotka]')">[Zwrotka]</button>
             <button type="button" onclick="add_to_lyrics('[Intro]')">[Intro]</button>

@@ -16,6 +16,6 @@ urlpatterns = [
     path('add/', add_album),
     path('<str:name>/', about),
     path('<str:name>/<int:number>/', song, name='song_details'),
-    path('<str:name>/<int:number>/edit_song', edit_song, name='edit_song'),
+    path('<str:name>/<int:number>/edit_song/', edit_song, name='edit_song'),
     path('api-album/', include(route.urls))
 ]

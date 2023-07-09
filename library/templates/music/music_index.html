@@ -1,4 +1,4 @@
-{% extends 'music_base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block static %}
     <link rel="stylesheet" href="{% static 'css/albums.css' %}">
@@ -21,7 +21,7 @@
     <div id="albums">
         {% for album in albums %}
             <a href="{{ album.name }}">
-                <div class="album" {% if album.is_borrowed %} style="filter: grayscale(1) blur(1px)" {% endif %}>
+                <div class="album" {% if album.is_borrowed %} style="filter: grayscale(1)" {% endif %}>
                     <h4>{{ album.artist }}</h4>
                     <h2>{{ album.name }}</h2> <br>
                     <img src = "{{ album.image.url }}" width="350" height="350">
