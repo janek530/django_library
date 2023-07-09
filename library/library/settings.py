@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'music.apps.MusicConfig',
+    'books.apps.BooksConfig',
     'rest_framework',
 ]
 
@@ -61,7 +62,9 @@ ROOT_URLCONF = 'library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/music')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'templates/music'),
+                 os.path.join(BASE_DIR, 'templates/books'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

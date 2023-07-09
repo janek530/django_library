@@ -1,0 +1,23 @@
+.book{
+    width: auto;
+    margin: 10px;
+    background-color: #242227;
+    padding: 50px;
+    border: 3px dotted red;
+    color: white;
+    font-size: 1.75em;
+    text-align: center;
+}
+#title{
+    font-size: 1em;
+}
+
+#author{
+    font-size: 0.75em;
+    color: #A8A8A8;
+}
+
+.book > p{
+
+    display: inline;
+}

@@ -11,13 +11,12 @@ def index(request):
     try:
         sort = request.GET['sort']
         albums = albums.order_by(sort)
-        return render(request, 'index.html', {'albums': albums})
+        return render(request, 'music_index.html', {'albums': albums})
     except:
-        return render(request, 'index.html', {'albums': albums})
+        return render(request, 'music_index.html', {'albums': albums})
 
 def about(request, name):
     album = Album.objects.get(name=name)
-    album_id = album.id
     songs = album.song_set.all()
     track_num = len(songs)+1
     if request.method == "POST":

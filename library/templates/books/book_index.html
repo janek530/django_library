@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block static %}
+<link rel="stylesheet" href="{% static 'css/books.css' %}">
+{% endblock %}
+{% block content %}
+    {% for book in books %}
+        <a href="{{ book.title }}">
+            <div class="book">
+                <p>{{ book.id }}.</p> <p id="title">{{ book.title }}</p> <p id="author">{{ book.author }}</p>
+            </div>
+        </a>
+    {% endfor %}
+    <a href="add">
+        <div class="book">
+            <p> ADD NEW BOOK +</p>
+        </div>
+    </a>
+{% endblock %}
